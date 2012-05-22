@@ -22,6 +22,12 @@ cd jquery-pageswipe
 rackup -p 3000
 ```
 
+Then, open up
+
+  `http://localhost:3000/demo/index.html`
+  
+in Safari.
+
 ## Questions and requests
 
 For now, questions (no matter what!) and requests can be sent to
