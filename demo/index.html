@@ -5,10 +5,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 	<title>jQuery pageSwipe demo</title>
-	<link rel="stylesheet" href="../pageswipe/jquery.pageswipe.js" type="text/css" media="screen" charset="utf-8">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../pageswipe/jquery.pageswipe.js" type="text/javascript" charset="utf-8"></script>
 	
 	<script type="text/javascript" charset="utf-8">
-	 $('.pages').pageSwipe();
+	 $(document).ready(function() {
+ 	   $('.pages').pageSwipe();
+	 })
 	</script>
 	
 	<style type="text/css" media="screen">
