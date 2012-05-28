@@ -5,7 +5,7 @@
     viewport.css({height: '1024px', width: '768px', margin: 'auto', overflow: "hidden", position: "relative"})
     this.wrap(viewport)
     
-    numberOfPages = this.children('.page').length
+    var numberOfPages = this.children('.page').length
     
     this.css({width: (numberOfPages * 768) + "px", position: "absolute", height: "1024px", overflow: 'hidden'})
     this.children('.page').css({width: '768px', height: '1024px', "float": "left"})
@@ -35,6 +35,12 @@
       horizontalTouchPosition = e.touches[0].pageX
       horizontalTouchDelta = horizontalTouchPosition - horizontalTouchStart
       
+      if (horizontalTouchDelta > 0) {
+        horizontalDirection = "right"
+      } else if (horizontalTouchDelta < 1) {
+        horizontalDirection = "left"
+      }
+      
       if (!scrollDirection) {
         /* We do not have a scrollDirection yet. So we are going to figure it
            out: */
@@ -44,8 +50,13 @@
       }
       
       if (scrollDirection == "h") {
-        e.preventDefault()
-        that.css({"-webkit-transform": "translate3d(" + (pagesStartPosition + horizontalTouchDelta) + "px,0,0)"})
+        e.preventDefault() /* Disable other scroll directions when we are scrolling horizontally */
+        if ( 
+          (horizontalDirection == "right" && currentPage > 1) || /* Make sure we cannot scroll to the left of the first page. */
+          (horizontalDirection == "left" && currentPage < numberOfPages) /* Make sure we cannot scroll beyond the last page. */
+        ) {
+          that.css({"-webkit-transform": "translate3d(" + (pagesStartPosition + horizontalTouchDelta) + "px,0,0)"})
+        }
       }
     })
     
@@ -56,13 +67,13 @@
       horizontalTouchDelta = horizontalTouchStart - horizontalTouchEnd
       
       if (scrollDirection == "h") {
-        if (horizontalTouchDelta > 0) {
+        if (horizontalTouchDelta > 0 && currentPage < numberOfPages) {
           that.css({
             "-webkit-transition": "all .2s ease-in-out", 
             "-webkit-transform": "translate3d("  + (-768 * (currentPage)) + "px,0,0)"
           })
           currentPage++
-        } else if (horizontalTouchDelta < 0) {
+        } else if (horizontalTouchDelta < 0 && currentPage > 1) {
           currentPage--
           that.css({
             "-webkit-transition": "all .2s ease-in-out", 
