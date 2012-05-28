@@ -20,6 +20,7 @@
 	   margin: 0;
 	   padding: 0;
 	   background-color: #444;
+	   font-family: "PT Sans";
 	 }
 	 
 	 div.page {
@@ -51,7 +52,29 @@
 	   font-weight: bold;
 	   font-size: 20px;
 	 }
+	 
+	 div.two-columns {
+	   -webkit-column-count: 2;
+	   -webkit-column-gap: 2em;
+	 }
+	 
+	 div.two-columns p + p {
+     text-indent: 1.3em;
+   }
+   
+   div.two-columns p {
+     -webkit-column-break-inside: avoid;
+     font-size: 16px;
+   }
+   
+   div.two-columns p:first-child:first-letter {
+     font-size: 1.5em;
+     line-height: 0;
+   }
 	</style>
+	
+	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400italic,400,700,700italic' rel='stylesheet' type='text/css'>
+  
 </head>
 
 <body>
@@ -76,6 +99,39 @@
         enable you to create magazine or ebook like experiences for your 
         customers.
       </p>
+      
+      <p>For example, insert a video:</p>
+  
+    </div>
+      
+    <iframe src="http://player.vimeo.com/video/42636901?autoplay=1" width="768" height="432" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  
+    
+    <div class="article">
+      
+      <p>Inserting some links:</p>
+      
+      <ul>
+        <li><a href="http://nu.nl">Nu.nl</a></li>
+      </ul>
+      
+      <p>Or continue writing an article in two columns:</p>
+      
+      <div class="two-columns">
+        
+        <p>
+          Just add the article text here and it instantly looks readable
+          on the iPad. People can tap, swipe and interact with your pages
+          in an even better way than a paper magazine.
+        </p>
+        
+        <p>Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue.</p>
+
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis.</p>
+          
+      </div>
     
     </div>
     

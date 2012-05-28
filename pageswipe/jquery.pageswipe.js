@@ -1,18 +1,21 @@
 (function( $ ) {
   $.fn.pageSwipe = function() {
     
+    viewportHeight = $(window).height();
+    
     viewport = $('<div class="pageswipe-viewport" class="viewport"></div>')
-    viewport.css({height: '1024px', width: '768px', margin: 'auto', overflow: "hidden", position: "relative"})
+    viewport.css({height: viewportHeight + 'px', width: '768px', margin: 'auto', overflow: "hidden", position: "relative"})
     this.wrap(viewport)
     
     var numberOfPages = this.children('.page').length
     
-    this.css({width: (numberOfPages * 768) + "px", position: "absolute", height: "1024px", overflow: 'hidden'})
-    this.children('.page').css({width: '768px', height: '1024px', "float": "left"})
+    this.css({width: (numberOfPages * 768) + "px", position: "absolute", height: viewportHeight + 'px', overflow: 'hidden'})
+    this.children('.page').css({width: '768px', height: viewportHeight + 'px', "float": "left", "overflow-y": "scroll", "-webkit-overflow-scrolling": "touch"})
     
     var that = this
     var pagesStartPosition = 0
     var horizontalTouchStart = null
+    var verticalTouchStart = null
     var scrollDirection = null
     var currentPage = 1
     
@@ -27,6 +30,7 @@
       
       pagesStartPosition = that.position().left
       horizontalTouchStart = e.touches[0].pageX
+      verticalTouchStart = e.touches[0].pageY
     })
     
     $(document).bind('touchmove.pageswipe', function(event) {
@@ -34,6 +38,9 @@
       
       horizontalTouchPosition = e.touches[0].pageX
       horizontalTouchDelta = horizontalTouchPosition - horizontalTouchStart
+      
+      verticalTouchPosition = e.touches[0].pageY
+      verticalTouchDelta = verticalTouchPosition - verticalTouchStart
       
       if (horizontalTouchDelta > 0) {
         horizontalDirection = "right"
@@ -47,6 +54,10 @@
         if (Math.abs(horizontalTouchDelta) > 10) {
           scrollDirection = "h"
         }
+        
+        if (Math.abs(verticalTouchDelta) > 10) {
+          scrollDirection = "v"
+        }
       }
       
       if (scrollDirection == "h") {
@@ -57,6 +68,7 @@
         ) {
           that.css({"-webkit-transform": "translate3d(" + (pagesStartPosition + horizontalTouchDelta) + "px,0,0)"})
         }
+      } else if (scrollDirection == "v") {
       }
     })
     
