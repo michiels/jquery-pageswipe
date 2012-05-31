@@ -28,22 +28,38 @@
 	 }
 	
 	 div.title {
+	   font-size: 60px;
+	   text-align: center;
+	   margin-top: 100px;
+	   font-weight: bold;
+	   color: #fff;
+	   margin-bottom: 10px;
+	 }
+	 
+	 div.subtitle {
 	   font-size: 30px;
 	   text-align: center;
-	   margin: 100px;
+	   font-style: italic;
+	   color: #fff;
+	   letter-spacing: -2px;
+	 }
+	 
+	 div#frontpage {
+	   background-color: #121212;
 	 }
 	 
 	 div.article {
-	   margin: 80px;
+	   margin: 40px 60px;
 	 }
 	 
 	 div.article h1 {
-	   font-size: 30px;
+	   font-size: 36px;
 	   font-weight: bold;
+	   text-transform: uppercase;
 	 }
 	 
 	 div.article p {
-	   line-height: 1.3em;
+	   line-height: 1.5em;
 	   font-size: 18px;
 	   margin-bottom: 1em;
 	 }
@@ -59,17 +75,18 @@
 	 }
 	 
 	 div.two-columns p + p {
-     text-indent: 1.3em;
+     text-indent: 1.5em;
    }
    
    div.two-columns p {
-     -webkit-column-break-inside: avoid;
      font-size: 16px;
+     text-align: justify;
    }
    
    div.two-columns p:first-child:first-letter {
      font-size: 1.5em;
      line-height: 0;
+     font-weight: bold;
    }
 	</style>
 	
@@ -80,42 +97,72 @@
 <body>
 
 <div class="pages">
-  <div class="page">
+  <div class="page" id="frontpage">
     <div class="title">Our frontpage</div>
+    <div class="subtitle">Examples for creating an online magazine or book</div>
   </div>
   <div class="page">
     
     <div class="article">
-    
-      <h1>Second page</h1>
+      
+      <h1 style="text-align: center">Second page</h1>
     
       <p class="introduction">
         This is an introduction article for this page. You can use your own 
         elements and styles inside your pages. Just like you are used to.
-      </p>
-    
-      <p>
         You can do some pretty awesome things with just html and css which will 
         enable you to create magazine or ebook like experiences for your 
         customers.
       </p>
-      
-      <p>For example, insert a video:</p>
+    
+      <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Donec sed odio dui. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+
+      <p>Maecenas faucibus mollis interdum. Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
+
+      <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+
+      <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id dolor id nibh ultricies vehicula ut id elit. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
   
     </div>
-      
-    <iframe src="http://player.vimeo.com/video/42636901?autoplay=1" width="768" height="432" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
   
+  </div>
+  
+  <div class="page" style="background-image:url(http://pavlov-website-staging.herokuapp.com/assets/background_succesverhalen.jpg); background-size: cover;">
     
+    <div style="color: #FFF; text-transform: uppercase; font-size: 80px; margin-top: 200px; font-weight: bold; letter-spacing: -2px; margin-left: 40px; line-height: .8em">This is the<br /> works</div>
+    
+    <div class="article-white" style="background-color: #FFF; margin: 40px; padding: 10px 20px; -webkit-box-shadow: rgba(0,0,0,0.1) 4px 4px 1px">
+      <div class="two-columns">
+        <p>Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis.</p>
+        
+        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue.</p>
+
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis.</p>
+        
+        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue.</p>
+
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis.</p>
+        
+        <p>Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+        
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis.</p>
+        
+        <p>Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue.</p>
+
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis.</p>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="page">
     <div class="article">
       
-      <p>Inserting some links:</p>
-      
-      <ul>
-        <li><a href="http://nu.nl">Nu.nl</a></li>
-      </ul>
-      
-      <p>Or continue writing an article in two columns:</p>
+      <h1>Like you see on Star Trek</h1>
       
       <div class="two-columns">
         
@@ -127,6 +174,22 @@
         
         <p>Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
 
+        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis.</p>
+        
+        <p>Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue.</p>
+
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis.</p>
+        
+        <p>Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
+        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue.</p>
+
+        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis.</p>
+        
+        <p>Maecenas faucibus mollis interdum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+
         <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue.</p>
 
         <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Sed posuere consectetur est at lobortis.</p>
@@ -134,8 +197,9 @@
       </div>
     
     </div>
-    
+  
   </div>
+    
 </div>
 
 </body>

@@ -10,7 +10,7 @@
     var numberOfPages = this.children('.page').length
     
     this.css({width: (numberOfPages * 768) + "px", position: "absolute", height: viewportHeight + 'px', overflow: 'hidden'})
-    this.children('.page').css({width: '768px', height: viewportHeight + 'px', "float": "left", "overflow-y": "scroll", "-webkit-overflow-scrolling": "touch"})
+    this.children('.page').css({width: '768px', height: viewportHeight + 'px', "float": "left", "overflow-y": "auto", "-webkit-overflow-scrolling": "touch"})
     
     var that = this
     var pagesStartPosition = 0
@@ -93,6 +93,11 @@
           })
         }
       }
+      
+      $('.page').css({
+          "overflow-y": "hidden",
+          "-webkit-overflow-scrolling": "none"
+      })
     })
     
     return this
