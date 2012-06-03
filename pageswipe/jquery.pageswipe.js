@@ -68,7 +68,6 @@
         ) {
           that.css({"-webkit-transform": "translate3d(" + (pagesStartPosition + horizontalTouchDelta) + "px,0,0)"})
         }
-      } else if (scrollDirection == "v") {
       }
     })
     
