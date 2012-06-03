@@ -33,7 +33,5 @@ Your HTML should look something like this:
 
 ## Questions and feedback
 
-For now, questions (no matter what!) and requests can be sent to
-
-  Michiel Sikkes <michiel@firmhouse.com>
-  http://twitter.com/michiels
+Michiel Sikkes <michiel@firmhouse.com> or [@michiels](http://twitter.com/michiels)
+on Twitter.
