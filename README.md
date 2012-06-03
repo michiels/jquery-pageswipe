@@ -1,14 +1,20 @@
 # jQuery pageSwipe
 
-This is a jQuery plugin in progress that lets you create an e-reader or iPad
-magazine-like user experience for your web app.
+This is a jQuery plugin that lets you create an e-reader or iPad
+magazine-like user experience for your web application.
 
-The idea is that you can create and style your pages with everything you've
-creatively got in you just like you are used to with normal pages. This
-plugin will take care of swiping, navigating and scaling to all device 
-sizes.
+It let's you create pages with HTML, CSS and JavaScript and turns it into
+and iPad experience with swiping pages and vertical scrolling.
 
 ## Usage
+
+You can call the plugin like the following:
+
+``` js
+$(document).ready(function() {
+  $('.pages').pageSwipe()
+})
+```
 
 Your HTML should look something like this:
 
@@ -25,22 +31,9 @@ Your HTML should look something like this:
 </div>
 ```
 
-Then with JavaScript:
-
-``` js
-$(document).ready(function() {
-  $('.pages').pageSwipe()
-})
-```
-
-in Safari.
-
-## Questions and requests
+## Questions and feedback
 
 For now, questions (no matter what!) and requests can be sent to
 
   Michiel Sikkes <michiel@firmhouse.com>
-  
-Or you can get in touch on Twitter:
-
   http://twitter.com/michiels
