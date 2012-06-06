@@ -10,7 +10,8 @@ class SwipeTest < CapybaraTestCase
     page.driver.mouse_up_at(20, 100)
     sleep 1
     
-    assert_equal -763, css_matrix_for_selector('.pages')[0], "Expected .pages to have a left position of -768"
+    assert_equal -768, css_matrix_for_selector('.pages')[0], 
+      "Expected .pages to have a left position of -768"
   end
   
   private
