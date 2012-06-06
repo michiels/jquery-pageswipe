@@ -3,7 +3,17 @@
 This file provides a bit of information on how to hack on jquery-pageswipe
 and get your development environment up and running.
 
-## Testing with the iOS Simulator on Mac OS X
+## Tests
+
+There is a test suite available in `tests/` that uses Capybara, PhantomJS and
+Poltergeist to test certain aspects of this plugin. The basic idea is the 
+following:
+
+* Run your tests with `rake test`
+* It uses a Rack app in `tests/app.rb` to "start up" the demo in Capybara.
+* It runs the test cases in `tests/*_test.rb`
+
+## In iOS Simulator on Mac OS X
 
 The iOS Simulator on the newest XCode has to be manually installed and is
 located at:

@@ -31,6 +31,17 @@ Your HTML should look something like this:
 </div>
 ```
 
+## Hacking & Testing
+
+To start hacking, clone the repository and run:
+
+``` sh
+bundle install
+rake test
+```
+
+For more information, see: [HACKING.md](https://github.com/michiels/jquery-pageswipe/blob/master/HACKING.md)
+
 ## Questions and feedback
 
 Michiel Sikkes <michiel@firmhouse.com> or [@michiels](http://twitter.com/michiels)
