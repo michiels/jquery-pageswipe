@@ -3,10 +3,6 @@ GIT
   revision: 25b95ae6a1cc0bbd86a7d9ea333246d35243b5a9
   branch: implement-mouse-events
   specs:
-
-PATH
-  remote: ~/Code/personal/poltergeist
-  specs:
     poltergeist (0.6.0)
       capybara (~> 1.0)
       childprocess (~> 0.3)
