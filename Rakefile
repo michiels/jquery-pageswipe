@@ -1,3 +1,4 @@
+require 'rake/testtask'
 require 'closure-compiler'
 
 desc "Minimizes the plugin for distribution with Closure"
@@ -6,7 +7,7 @@ task :minimize do
   puts compiled
 end
 
-desc "Run tests"
-task :test
-  
+Rake::TestTask.new do |t|
+  t.test_files = FileList['test/*_test.rb']
+  t.verbose = true
 end

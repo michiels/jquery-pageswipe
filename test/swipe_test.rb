@@ -4,14 +4,13 @@ class SwipeTest < CapybaraTestCase
   
   def test_swipe_moves_page
     visit "/"
-    page.driver.resize(768, 1024)
+    
     page.driver.mouse_down_at(100, 100)
     page.driver.mouse_move_at(50, 100)
     page.driver.mouse_up_at(20, 100)
     sleep 1
     
     assert_equal -768, css_matrix_for_selector('.pages')[0]
-    assert true
   end
   
   private

@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/michiels/poltergeist.git
+  revision: 25b95ae6a1cc0bbd86a7d9ea333246d35243b5a9
+  branch: implement-mouse-events
+  specs:
+
 PATH
   remote: ~/Code/personal/poltergeist
   specs:
