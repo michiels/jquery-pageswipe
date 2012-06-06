@@ -23,23 +23,43 @@
       $(this).css({"-webkit-transition": ""})
     })
     
-    $(document).bind('touchstart.pageswipe', function(event) {
+    $(document).bind('touchstart.pageswipe mousedown.pageswipe', function(event) {
       e = event.originalEvent
       
       scrollDirection = null
       
       pagesStartPosition = that.position().left
-      horizontalTouchStart = e.touches[0].pageX
-      verticalTouchStart = e.touches[0].pageY
+      
+      if (e.type == 'mousedown') {
+        horizontalTouchStart = e.pageX
+        verticalTouchStart = e.pageY
+        
+      } else {
+      
+        horizontalTouchStart = e.touches[0].pageX
+        verticalTouchStart = e.touches[0].pageY
+        
+      }
+            
     })
     
-    $(document).bind('touchmove.pageswipe', function(event) {
+    $(document).bind('touchmove.pageswipe mousemove.pageswipe', function(event) {
       e = event.originalEvent
+            
+      if (e.type == 'mousemove') {
+        horizontalTouchPosition = e.pageX
+      } else {
+        horizontalTouchPosition = e.touches[0].pageX
+      }
       
-      horizontalTouchPosition = e.touches[0].pageX
       horizontalTouchDelta = horizontalTouchPosition - horizontalTouchStart
+            
+      if (e.type == 'mousemove') {
+        verticalTouchPosition = e.pageY
+      } else {
+        verticalTouchPosition = e.touches[0].pageY
+      }
       
-      verticalTouchPosition = e.touches[0].pageY
       verticalTouchDelta = verticalTouchPosition - verticalTouchStart
       
       if (horizontalTouchDelta > 0) {
@@ -71,10 +91,15 @@
       }
     })
     
-    $(document).bind('touchend.pageswipe', function(event) {
+    $(document).bind('touchend.pageswipe mouseup.pageswipe', function(event) {
       e = event.originalEvent
       
-      horizontalTouchEnd = e.changedTouches[0].pageX
+      if (e.type == 'mouseup') {
+        horizontalTouchEnd = e.pageX
+      } else {
+        horizontalTouchEnd = e.changedTouches[0].pageX
+      }
+      
       horizontalTouchDelta = horizontalTouchStart - horizontalTouchEnd
       
       if (scrollDirection == "h") {
@@ -97,6 +122,7 @@
           "overflow-y": "hidden",
           "-webkit-overflow-scrolling": "none"
       })
+      
     })
     
     return this
