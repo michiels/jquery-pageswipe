@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__)) + '/test_helper'
 class SwipeTest < CapybaraTestCase
   
   def test_swipe_moves_page
-    visit "/"
+    visit "/demo/index.html"
     
     page.driver.mouse_down_at(100, 100)
     page.driver.mouse_move_at(50, 100)
