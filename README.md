@@ -31,6 +31,15 @@ Your HTML should look something like this:
 </div>
 ```
 
+## Distribution
+
+The Google Closure compiler is used to optimize and minify the JavaScript.
+Run the following command to pack the plugin:
+
+```
+rake minimize > jquery.pageswipe.min.js
+```
+
 ## Hacking & Testing
 
 To start hacking, clone the repository and run:
