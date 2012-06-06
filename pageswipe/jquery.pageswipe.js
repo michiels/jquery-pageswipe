@@ -18,6 +18,7 @@
     var verticalTouchStart = null
     var scrollDirection = null
     var currentPage = 1
+    var touchDown = false
     
     $(this).bind('webkitTransitionEnd', function () {
       $(this).css({"-webkit-transition": ""})
@@ -29,6 +30,8 @@
       scrollDirection = null
       
       pagesStartPosition = that.position().left
+      
+      touchDown = true
       
       if (e.type == 'mousedown') {
         horizontalTouchStart = e.pageX
@@ -44,6 +47,10 @@
     })
     
     $(document).bind('touchmove.pageswipe mousemove.pageswipe', function(event) {
+      if (!touchDown) {
+        return true;
+      }
+      
       e = event.originalEvent
             
       if (e.type == 'mousemove') {
@@ -92,6 +99,7 @@
     })
     
     $(document).bind('touchend.pageswipe mouseup.pageswipe', function(event) {
+      touchDown = false
       e = event.originalEvent
       
       if (e.type == 'mouseup') {
@@ -121,6 +129,11 @@
       $('.page').css({
           "overflow-y": "hidden",
           "-webkit-overflow-scrolling": "none"
+      })
+      
+      $('.page:nth-child(' + currentPage + ')').css({
+        "overflow-y": "auto",
+        "-webkit-overflow-scrolling": "touch"
       })
       
     })
