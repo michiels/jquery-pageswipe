@@ -4,10 +4,8 @@ class App
   def self.run
     return Rack::Builder.new {
       use ::Rack::Static,
-        :urls => ["demo", "pageswipe", "demo/assets"],
+        :urls => ["/demo", "/pageswipe", "/demo/assets"],
         :root => "."
-        
-      
 
       run lambda { |env|
           [

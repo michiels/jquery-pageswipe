@@ -125,17 +125,6 @@
           })
         }
       }
-      
-      $('.page').css({
-          "overflow-y": "hidden",
-          "-webkit-overflow-scrolling": "none"
-      })
-      
-      $('.page:nth-child(' + currentPage + ')').css({
-        "overflow-y": "auto",
-        "-webkit-overflow-scrolling": "touch"
-      })
-      
     })
     
     return this
