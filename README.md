@@ -55,9 +55,10 @@ For more information, see: [HACKING.md](https://github.com/michiels/jquery-pages
 
 The plugin is released under the GPLv2. This basically means that you can
 use and (re)distribute this plugin and your changes as long as your new
-version or the application you are using this plugin under the same terms.
+version or the application you are using this plugin is released
+under these same terms.
 
-In most cases, this is not what you can do for closed priorietary software.
+In most cases, this is not suitable for your own closed priorietary software.
 For example, if you use this plugin in consulting jobs or if you plan to
 ship it with a SaaS application or other product you will need a commercial
 license. Get in touch if you are interested.
