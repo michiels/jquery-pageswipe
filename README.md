@@ -33,9 +33,9 @@ Your HTML should look something like this:
 
 ## Commercial use and licensing
 
-The plugin is released under the GPLv2. This basically means that you can
-use and (re)distribute this plugin and your changes as long as your new
-version or the application you are using this plugin is released
+The plugin is released under the AGPLv3. This basically means that you can
+use change, and (re)distribute this plugin standalone and in your own web 
+applications as long as the software you distribute it with is released
 under these same terms.
 
 In most cases, this is not suitable for your own closed priorietary software.
