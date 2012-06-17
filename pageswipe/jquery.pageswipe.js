@@ -19,14 +19,22 @@
     
     viewportHeight = $(window).height();
     
+    if (viewportHeight > 1024) {
+      remaining = viewportHeight - 1024
+      remainingHeight = (remaining / 2) + 'px '
+      viewportHeight = 1024
+    } else {
+      remainingHeight = ''
+    }
+    
     viewport = $('<div class="pageswipe-viewport" class="viewport"></div>')
-    viewport.css({height: viewportHeight + 'px', width: '768px', margin: 'auto', overflow: "hidden", position: "relative"})
+    viewport.css({height: viewportHeight + 'px', height: viewportHeight + 'px', width: '768px', margin: remainingHeight + 'auto', overflow: "hidden", position: "relative"})
     this.wrap(viewport)
     
     var numberOfPages = this.children('.page').length
     
-    this.css({width: (numberOfPages * 768) + "px", position: "absolute", height: viewportHeight + 'px', overflow: 'hidden'})
-    this.children('.page').css({width: '768px', height: viewportHeight + 'px', "float": "left", "overflow-y": "auto", "-webkit-overflow-scrolling": "touch"})
+    this.css({width: (numberOfPages * 768) + "px", position: "absolute"})
+    this.children('.page').css({width: '768px', height: viewportHeight + 'px', "float": "left", "overflow-y": "auto", "-webkit-overflow-scrolling": "touch", "position": "relative"})
     
     var that = this
     var pagesStartPosition = 0
@@ -63,6 +71,7 @@
     })
     
     $(document).bind('touchmove.pageswipe mousemove.pageswipe', function(event) {
+      
       if (!touchDown) {
         return true;
       }
@@ -91,7 +100,13 @@
         horizontalDirection = "left"
       }
       
-      if (!scrollDirection) {
+      selecting = false;
+      
+      if (window.getSelection().type == "Range") {
+        selecting = true;
+      }
+      
+      if (!scrollDirection && !selecting) {
         /* We do not have a scrollDirection yet. So we are going to figure it
            out: */
         if (Math.abs(horizontalTouchDelta) > 10) {
