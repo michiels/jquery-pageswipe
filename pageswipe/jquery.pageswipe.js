@@ -48,6 +48,10 @@
       this.style.WebkitTransition = ''
     })
     
+    $(this).bind('otransitionend', function () {
+      this.style.OTransition = ''
+    })
+    
     $(this).bind('transitionend', function () {
       this.style.MozTransition = ''
     })
@@ -139,6 +143,7 @@
           that[0].style.WebkitTransform = "translate3d(" + (pagesStartPosition + horizontalTouchDelta) + "px,0,0)"
           that[0].style.msTransform = "translate(" + (pagesStartPosition + horizontalTouchDelta) + "px, 0)"
           that[0].style.MozTransform = "translateX(" + (pagesStartPosition + horizontalTouchDelta) + "px)"
+          that[0].style.OTransform = "translateX(" + (pagesStartPosition + horizontalTouchDelta) + "px)"
           
           if (jQuery.browser.version == "8.0") {
             that[0].style.left = (pagesStartPosition + horizontalTouchDelta)
@@ -171,6 +176,9 @@
           that[0].style.MozTransition = 'all .2s ease-in-out'
           that[0].style.MozTransform = "translateX("  + nextPosition + "px)"
           
+          that[0].style.OTransition = 'all .2s ease-in-out'
+          that[0].style.OTransform = "translateX(" + nextPosition + "px)"
+          
           if (jQuery.browser.version == "8.0") {
             that[0].style.left = nextPosition
           }
@@ -186,6 +194,9 @@
           
           that[0].style.MozTransition = 'all .2s ease-in-out'
           that[0].style.MozTransform = "translateX("  + nextPosition + "px)"
+          
+          that[0].style.OTransition = 'all .2s ease-in-out'
+          that[0].style.OTransform = "translateX(" + nextPosition + "px)"
           
           if (jQuery.browser.version == "8.0") {
             that[0].style.left = nextPosition
