@@ -27,9 +27,9 @@
       remainingHeight = ''
     }
     
-    viewport = $('<div class="pageswipe-viewport" class="viewport"></div>')
-    viewport.css({height: viewportHeight + 'px', height: viewportHeight + 'px', width: '768px', margin: remainingHeight + 'auto', overflow: "hidden", position: "relative"})
-    this.wrap(viewport)
+    pageswipe_viewport = $('<div class="pageswipe-viewport viewport"></div>')
+    pageswipe_viewport.css({height: viewportHeight + 'px', height: viewportHeight + 'px', width: '768px', margin: remainingHeight + 'auto', overflow: "hidden", position: "relative"})
+    this.wrap(pageswipe_viewport)
     
     var numberOfPages = this.children('.page').length
     
@@ -45,7 +45,7 @@
     var touchDown = false
     
     $(this).bind('webkitTransitionEnd', function () {
-      $(this).css({"-webkit-transition": ""})
+      this.style.WebkitTransition = ''
     })
     
     $(document).bind('touchstart.pageswipe mousedown.pageswipe', function(event) {
@@ -58,7 +58,7 @@
       touchDown = true
       
       if (e.type == 'mousedown') {
-        horizontalTouchStart = e.pageX
+        horizontalTouchStart = e.clientX
         verticalTouchStart = e.pageY
         
       } else {
@@ -79,7 +79,7 @@
       e = event.originalEvent
             
       if (e.type == 'mousemove') {
-        horizontalTouchPosition = e.pageX
+        horizontalTouchPosition = e.clientX
       } else {
         horizontalTouchPosition = e.touches[0].pageX
       }
@@ -102,8 +102,10 @@
       
       selecting = false;
       
-      if (window.getSelection().type == "Range") {
-        selecting = true;
+      if (window.getSelection) {
+        if (window.getSelection().type == "Range") {
+          selecting = true;
+        }
       }
       
       if (!scrollDirection && !selecting) {
@@ -119,12 +121,19 @@
       }
       
       if (scrollDirection == "h") {
-        e.preventDefault() /* Disable other scroll directions when we are scrolling horizontally */
+        if (e.preventDefault) {
+          e.preventDefault() /* Disable other scroll directions when we are scrolling horizontally */
+        }
         if ( 
           (horizontalDirection == "right" && currentPage > 1) || /* Make sure we cannot scroll to the left of the first page. */
           (horizontalDirection == "left" && currentPage < numberOfPages) /* Make sure we cannot scroll beyond the last page. */
         ) {
-          that.css({"-webkit-transform": "translate3d(" + (pagesStartPosition + horizontalTouchDelta) + "px,0,0)"})
+          that[0].style.WebkitTransform = "translate3d(" + (pagesStartPosition + horizontalTouchDelta) + "px,0,0)"
+          that[0].style.msTransform = "translate(" + (pagesStartPosition + horizontalTouchDelta) + "px, 0)"
+          
+          if (jQuery.browser.version == "8.0") {
+            that[0].style.left = (pagesStartPosition + horizontalTouchDelta)
+          }
         }
       }
     })
@@ -134,7 +143,7 @@
       e = event.originalEvent
       
       if (e.type == 'mouseup') {
-        horizontalTouchEnd = e.pageX
+        horizontalTouchEnd = e.clientX
       } else {
         horizontalTouchEnd = e.changedTouches[0].pageX
       }
@@ -143,17 +152,24 @@
       
       if (scrollDirection == "h") {
         if (horizontalTouchDelta > 0 && currentPage < numberOfPages) {
-          that.css({
-            "-webkit-transition": "all .2s ease-in-out", 
-            "-webkit-transform": "translate3d("  + (-768 * (currentPage)) + "px,0,0)"
-          })
+          nextPosition = (-768 * (currentPage))
+          that[0].style.WebkitTransition = 'all .2s ease-in-out'
+          that[0].style.WebkitTransform = "translate3d("  + nextPosition + "px,0,0)"
+          that[0].style.msTransform = "translate(" + nextPosition + "px, 0)"
+          
+          if (jQuery.browser.version == "8.0") {
+            that[0].style.left = nextPosition
+          }
           currentPage++
         } else if (horizontalTouchDelta < 0 && currentPage > 1) {
           currentPage--
-          that.css({
-            "-webkit-transition": "all .2s ease-in-out", 
-            "-webkit-transform": "translate3d("  + (-768 * (currentPage - 1)) + "px,0,0)"
-          })
+          nextPosition = (-768 * (currentPage - 1))
+          that[0].style.WebkitTransition = 'all .2s ease-in-out'
+          that[0].style.WebkitTransform = "translate3d("  + nextPosition + "px,0,0)"
+          that[0].style.msTransform = "translate(" + nextPosition + "px, 0)"
+          if (jQuery.browser.version == "8.0") {
+            that[0].style.left = nextPosition
+          }
         }
       }
     })
