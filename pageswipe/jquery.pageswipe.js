@@ -48,6 +48,14 @@
       this.style.WebkitTransition = ''
     })
     
+    $(this).bind('transitionend', function () {
+      this.style.MozTransition = ''
+    })
+    
+    $(this).bind('MSTransitionEnd', function() {
+      this.style.MSTransition = ''
+    })
+    
     $(document).bind('touchstart.pageswipe mousedown.pageswipe', function(event) {
       e = event.originalEvent
       
@@ -130,6 +138,7 @@
         ) {
           that[0].style.WebkitTransform = "translate3d(" + (pagesStartPosition + horizontalTouchDelta) + "px,0,0)"
           that[0].style.msTransform = "translate(" + (pagesStartPosition + horizontalTouchDelta) + "px, 0)"
+          that[0].style.MozTransform = "translateX(" + (pagesStartPosition + horizontalTouchDelta) + "px)"
           
           if (jQuery.browser.version == "8.0") {
             that[0].style.left = (pagesStartPosition + horizontalTouchDelta)
@@ -155,7 +164,12 @@
           nextPosition = (-768 * (currentPage))
           that[0].style.WebkitTransition = 'all .2s ease-in-out'
           that[0].style.WebkitTransform = "translate3d("  + nextPosition + "px,0,0)"
+          
+          that[0].style.msTransition = 'all .2s ease-in-out'
           that[0].style.msTransform = "translate(" + nextPosition + "px, 0)"
+          
+          that[0].style.MozTransition = 'all .2s ease-in-out'
+          that[0].style.MozTransform = "translateX("  + nextPosition + "px)"
           
           if (jQuery.browser.version == "8.0") {
             that[0].style.left = nextPosition
@@ -166,7 +180,13 @@
           nextPosition = (-768 * (currentPage - 1))
           that[0].style.WebkitTransition = 'all .2s ease-in-out'
           that[0].style.WebkitTransform = "translate3d("  + nextPosition + "px,0,0)"
+          
+          that[0].style.msTransition = 'all .2s ease-in-out'
           that[0].style.msTransform = "translate(" + nextPosition + "px, 0)"
+          
+          that[0].style.MozTransition = 'all .2s ease-in-out'
+          that[0].style.MozTransform = "translateX("  + nextPosition + "px)"
+          
           if (jQuery.browser.version == "8.0") {
             that[0].style.left = nextPosition
           }
